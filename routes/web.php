@@ -16,3 +16,36 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/dashboard', function () {
+    return view('pages.users.dashboard
+     ');
+});
+
+Route::get('/riwayatPermohonan', function () {
+    return view('pages.users.riwayatPermohonan');
+});
+
+Route::get('/akun', function () {
+    return view('pages.users.akun');
+});
+
+Route::get('/buatPermohonan', function () {
+    return view('pages.users.buatPermohonan');
+});
+
+Route::get('/akun', function () {
+    return view('pages.users.akun');
+});
+
+Route::get('/faq', function () {
+    return view('pages.users.faq');
+});
+
+Route::get('/lacakPermohonan', function () {
+    return view('pages.users.lacakPermohonan');
+});
+
+Route::get('/referensiPohon', function () {
+    return view('pages.users.referensiPohon');
+});
