@@ -5,7 +5,7 @@
 @endsection
 
 @section('subtitle')
-    Riwayat Permohonan
+    Buat Permohonan
 @endsection
 
 @section('menu')
@@ -62,7 +62,7 @@
         </span>
         <div class="menu-sub menu-sub-accordion">
             <div class="menu-item">
-                <a class="menu-link " href="{{ route('buatPermohonan') }}">
+                <a class="menu-link active" href="{{ route('buatPermohonan') }}">
                     <span class="menu-bullet">
                         <span class="bullet bullet-dot"></span>
                     </span>
@@ -89,7 +89,7 @@
     </div>
 
     <div class="menu-item">
-        <a class="menu-link active" href="{{ route('riwayat') }}">
+        <a class="menu-link" href="{{ route('riwayat') }}">
             <span class="menu-icon">
                 <!--begin::Svg Icon | path: icons/duotune/art/art002.svg-->
                 <span class="svg-icon svg-icon-2">
@@ -208,58 +208,143 @@
                 <div class="row g-5 g-xxl-8">
                     <!--begin::Col-->
                     <div class="col-xxl-4">
+                        <h1 class="d-flex align-items-center text-dark fw-bolder fs-3 my-1">Form Buat Permohonan
+                        </h1>
                         <!--begin::Mixed Widget 5-->
                         <div class="card card-xxl-stretch mb-xl-8 mt-5">
                             <!--begin::Beader-->
                             <div class="card-header border-0 py-5">
                                 <h3 class="card-title align-items-start flex-column">
-                                    <span class="card-label fw-bolder fs-3 mb-1">Riwayat Permohonan</span>
-                                    <span class="text-muted fw-bold fs-6 mt-3">Ini merupakan hasil riwayat permohonan dari
-                                        Nomor Permohonan yang telah melakukan pengimputan data permohonan.</span>
+                                    <span class="card-label fw-bolder fs-3 mb-1">Data Permohonan</span>
+                                    <span class="text-muted fw-bold fs-6 mt-3">Formulir ini adalah formulir
+                                        pengajuan permohonan untuk penebangan, pemangkasan, atau pemindahan
+                                        pohon di lingkungan Kota Kendari.</span>
                                 </h3>
-
                             </div>
                             <!--end::Header-->
                             <!--begin::Body-->
                             <div class="card-body d-flex flex-column">
-                                <!--begin::table -->
-                                <table class="table table-striped " style="border: 1;">
-                                    <thead>
-                                      <tr>
-                                        <th scope="col">No.</th>
-                                        <th scope="col">Jenis Pelayanan</th>
-                                        <th scope="col">Alasan</th>
-                                        <th scope="col">Pemohon</th>
-                                        <th scope="col">Tanggal Pemohon</th>
-                                        <th scope="col">No.Permohonan</th>
-                                        <th scope="col">Status</th>
-                                        <th scope="col">Aksi</th>
-                                      </tr>
-                                    </thead>
-                                    <tbody>
-                                      <tr>
-                                        <td>1</td>
-                                        <td>Penebangan Pohon</td>
-                                        <td>Menghalangi Jalan</td>
-                                        <td>Pribadi</td>
-                                        <td>12-12-2024</td>
-                                        <td>001/2024</td>
-                                        <td>Permohonan dibuat</td>
-                                        <td><a class="btn btn-sm btn-primary"><i class="fas fa-eye"></i></a></td>
-                                      </tr>
-                                      <tr>
-                                        <td>2</td>
-                                        <td>Pengambilan Sampah</td>
-                                        <td>Sampah Tertumpuk</td>
-                                        <td>Perumahan</td>
-                                        <td>12-12-2024</td>
-                                        <td>002/2024</td>
-                                        <td>Permohonan dibuat</td>
-                                        <td><a class="btn btn-sm btn-primary"><i class="fas fa-eye"></i></a></td>
-                                      </tr>
-                                    </tbody>
-                                  </table>
-                                <!--end::table-->
+                                <!--begin::form -->
+                                <form class="row g-3">
+                                    <div class="col-md-12 mb4">
+                                        <label for="validationCustom04" class="form-label">Jenis Pemohon</label>
+                                        <select class="form-select" id="validationCustom04" required>
+                                          <option selected disabled value="">Perumahan</option>
+                                          <option>publik</option>
+                                        </select>
+                                        <div class="invalid-feedback">
+                                          Please select a valid state.
+                                        </div>
+                                      </div>
+                                    <div class="col-md-12 mb-4">
+                                        <input type="text" class="form-control" id="inputAddress"
+                                            aria-describedby="alasan" placeholder="Alasan Permohonan">
+                                            <div id="inputAddress" class="form-text">
+                                                *Jika alasan permohonan penebangan/pemindahan
+                                            karena menghalangi akses, maka pemohon wajib mengunggah gambar letak pohon/site
+                                            plan bangunan
+                                            </div>
+                                    </div>
+                                    <div class="col-md-6 mb-4 mt-9 ">
+                                        <input type="text" class="form-control" id="inputAddress"
+                                            placeholder="Nomor Permohonan">
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <label for="floatingInputValue">Tanggal Permohonan</label>
+                                        <input type="date" class="form-control" id="inputAddress" placeholder="">
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <label for="floatingInputValue">Gambar Denah/Lokasi/Site Plan</label>
+                                        <input type="file" class="form-control" id="floatingInputValue" />
+                                        <div id="pohon" class="form-text">
+                                            *Max 1 mb Pdf (Wajib diisi jika alasan penebangan menghalangi akses)
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <label for="floatingInputValue">Scan IMB</label>
+                                        <input type="file" class="form-control" id="floatingInputValue" />
+                                        <div id="pohon" class="form-text">
+                                            *Max 1 mb Pdf (Opsional)
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <label for="floatingInputValue">Scan Izin Usaha</label>
+                                        <input type="file" class="form-control" id="floatingInputValue" />
+                                        <div id="pohon" class="form-text">
+                                            *Max 1 mb Pdf (Opsional)
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 mb-4">
+                                        <label for="floatingInputValue">Scan Izin Penyambungan Jalan Masuk</label>
+                                        <input type="file" class="form-control" id="floatingInputValue" />
+                                        <div id="pohon" class="form-text">
+                                            *Max 1 mb Pdf (Opsional)
+                                        </div>
+                                    </div>
+                                </form>
+                                <!--end::form-->
+                                <hr>
+                                <h3 class="card-title align-items-start flex-column mb-3">
+                                    <span class="card-label fw-bolder fs-3 mb-1">Data Pohon</span>
+                                </h3>
+                                <form class="row g-3">
+                                    <div class="col-md-12 mb-4">
+                                        <input type="text" class="form-control" id="inputAddress"
+                                            aria-describedby="alasan" placeholder="Alamat">
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <input type="text" class="form-control" id="inputAddress"
+                                            placeholder="Kecamatan">
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <input type="text" class="form-control" id="inputAddress"
+                                            placeholder="Kelurahan">
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <input type="text" class="form-control" for="pohon"
+                                            placeholder="Nama Pohon">
+                                        <div id="pohon" class="form-text">
+                                            *Jika tidak mengetahui nama pohon wajib upload gambar pohon.
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <input type="text" class="form-control" id="inputAddress"
+                                            placeholder="Jumlah Pohon">
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <input type="text" class="form-control" id="inputAddress"
+                                            placeholder="Jenis Pohon">
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <input type="text" class="form-control" id="inputAddress"
+                                            placeholder="Diameter Pohon">
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <label for="floatingInputValue">Upload Gambar Pohon</label>
+                                        <input type="file" class="form-control" id="floatingInputValue" />
+                                        <div id="pohon" class="form-text">
+                                            *Max 1 mb Pdf (Opsional)
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-4 mt-9">
+                                        <input type="text" class="form-control" id="inputAddress"
+                                            placeholder="Jenis Pohon Pengganti">
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <input type="text" class="form-control" id="inputAddress"
+                                            placeholder="Jumlah Pohon Pengganti">
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <input type="text" class="form-control" id="inputAddress"
+                                            placeholder="Lokasi Pohon Pengganti">
+                                    </div>
+                                    <div class="col-12 text-end">
+                                        <button type="submit" class="btn btn-primary btn-rounded">Simpan</button>
+                                    </div>
+                                </form>
                             </div>
                             <!--end::Body-->
                         </div>

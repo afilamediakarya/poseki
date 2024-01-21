@@ -38,7 +38,7 @@
                 <!--begin::Brand-->
                 <div class="aside-logo flex-column-auto" id="kt_aside_logo">
                     <!--begin::Logo-->
-                    <a href="{{ url('dashboard') }}">
+                    <a href="{{ url('admin') }}">
                         <img alt="Logo" src="assets/media/logos/logoPoseki.png" class="h-25px logo" />
                     </a>
                     <!--end::Logo-->
