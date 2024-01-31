@@ -1,11 +1,36 @@
 @extends('layouts.admin')
 
 @section('title')
-    Metronic - the worlds by Keenthemes
+    POSEKI - Admin Dashboard
 @endsection
 
 @section('subtitle')
     Dashboard
+@endsection
+
+@section('navbar')
+<!--begin::Topbar-->
+<div class="d-flex align-items-stretch flex-shrink-0">
+    <!--begin::Toolbar wrapper-->
+    <div class="d-flex align-items-stretch flex-shrink-0">
+        <!--begin::User-->
+        <div class="d-flex align-items-center ms-1 ms-lg-3" id="kt_header_user_menu_toggle">
+            <!--begin::Menu wrapper-->
+            <div class="cursor-pointer symbol symbol-30px symbol-md-40px" data-kt-menu-trigger="click"
+                data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
+                <img src="assets/media/avatars/150-26.jpg" alt="user" style="border-radius: 50%;" />
+                <span class="mr-2 d-none d-lg-inline text- small"></span>
+            </div>
+            <!--end::Menu wrapper-->
+        </div>
+        <!--end::User -->
+        <!--begin::Heaeder menu toggle-->
+        <!--end::Heaeder menu toggle-->
+    </div>
+    <!--end::Toolbar wrapper-->
+</div>
+<!--end::Topbar-->
+
 @endsection
 
 @section('menu')
@@ -15,66 +40,33 @@
         <div class="menu-item">
             <a class="menu-link active" href="{{ route('admin') }}">
                 <span class="menu-icon">
-                    <!--begin::Svg Icon | path: icons/duotune/art/art002.svg-->
                     <span class="svg-icon svg-icon-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25"
-                            fill="none">
-                            <path opacity="0.3"
-                                d="M8.9 21L7.19999 22.6999C6.79999 23.0999 6.2 23.0999 5.8 22.6999L4.1 21H8.9ZM4 16.0999L2.3 17.8C1.9 18.2 1.9 18.7999 2.3 19.1999L4 20.9V16.0999ZM19.3 9.1999L15.8 5.6999C15.4 5.2999 14.8 5.2999 14.4 5.6999L9 11.0999V21L19.3 10.6999C19.7 10.2999 19.7 9.5999 19.3 9.1999Z"
-                                fill="black" />
-                            <path
-                                d="M21 15V20C21 20.6 20.6 21 20 21H11.8L18.8 14H20C20.6 14 21 14.4 21 15ZM10 21V4C10 3.4 9.6 3 9 3H4C3.4 3 3 3.4 3 4V21C3 21.6 3.4 22 4 22H9C9.6 22 10 21.6 10 21ZM7.5 18.5C7.5 19.1 7.1 19.5 6.5 19.5C5.9 19.5 5.5 19.1 5.5 18.5C5.5 17.9 5.9 17.5 6.5 17.5C7.1 17.5 7.5 17.9 7.5 18.5Z"
-                                fill="black" />
-                        </svg>
+                        <img src="assets/media/icons/active.png" style="width : 70%; color : #F4BE2A">
                     </span>
-                    <!--end::Svg Icon-->
                 </span>
                 <span class="menu-title">Dashboard</span>
             </a>
         </div>
 
         <div class="menu-item">
-            <a class="menu-link" href="{{ url('admin/referensiPohon') }}">
+            <a class="menu-link" href="{{ route('admin.referensi') }}">
                 <span class="menu-icon">
-                    <!--begin::Svg Icon | path: icons/duotune/art/art002.svg-->
-                    <span class="svg-icon svg-icon-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25"
-                            fill="none">
-                            <path opacity="0.3"
-                                d="M8.9 21L7.19999 22.6999C6.79999 23.0999 6.2 23.0999 5.8 22.6999L4.1 21H8.9ZM4 16.0999L2.3 17.8C1.9 18.2 1.9 18.7999 2.3 19.1999L4 20.9V16.0999ZM19.3 9.1999L15.8 5.6999C15.4 5.2999 14.8 5.2999 14.4 5.6999L9 11.0999V21L19.3 10.6999C19.7 10.2999 19.7 9.5999 19.3 9.1999Z"
-                                fill="black" />
-                            <path
-                                d="M21 15V20C21 20.6 20.6 21 20 21H11.8L18.8 14H20C20.6 14 21 14.4 21 15ZM10 21V4C10 3.4 9.6 3 9 3H4C3.4 3 3 3.4 3 4V21C3 21.6 3.4 22 4 22H9C9.6 22 10 21.6 10 21ZM7.5 18.5C7.5 19.1 7.1 19.5 6.5 19.5C5.9 19.5 5.5 19.1 5.5 18.5C5.5 17.9 5.9 17.5 6.5 17.5C7.1 17.5 7.5 17.9 7.5 18.5Z"
-                                fill="black" />
-                        </svg>
-                    </span>
-                    <!--end::Svg Icon-->
+                    <img src="assets/media/icons/options-2.png" style="width : 80%;">
                 </span>
                 <span class="menu-title" style="">Referensi Pohon</span>
             </a>
         </div>
 
         <div class="menu-item">
-            <a class="menu-link" href="{{ url('/') }}">
+            <a class="menu-link" href="{{ route('actionlogout') }}">
                 <span class="menu-icon">
-                    <!--begin::Svg Icon | path: icons/duotune/art/art002.svg-->
                     <span class="svg-icon svg-icon-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25"
-                            fill="none">
-                            <path opacity="0.3"
-                                d="M8.9 21L7.19999 22.6999C6.79999 23.0999 6.2 23.0999 5.8 22.6999L4.1 21H8.9ZM4 16.0999L2.3 17.8C1.9 18.2 1.9 18.7999 2.3 19.1999L4 20.9V16.0999ZM19.3 9.1999L15.8 5.6999C15.4 5.2999 14.8 5.2999 14.4 5.6999L9 11.0999V21L19.3 10.6999C19.7 10.2999 19.7 9.5999 19.3 9.1999Z"
-                                fill="black" />
-                            <path
-                                d="M21 15V20C21 20.6 20.6 21 20 21H11.8L18.8 14H20C20.6 14 21 14.4 21 15ZM10 21V4C10 3.4 9.6 3 9 3H4C3.4 3 3 3.4 3 4V21C3 21.6 3.4 22 4 22H9C9.6 22 10 21.6 10 21ZM7.5 18.5C7.5 19.1 7.1 19.5 6.5 19.5C5.9 19.5 5.5 19.1 5.5 18.5C5.5 17.9 5.9 17.5 6.5 17.5C7.1 17.5 7.5 17.9 7.5 18.5Z"
-                                fill="black" />
-                        </svg>
+                        <img src="assets/media/icons/log-out.png" style="width : 80%; color : #F4BE2A">
                     </span>
-                    <!--end::Svg Icon-->
                 </span>
                 <span class="menu-title" style="">Log out</span>
             </a>
         </div>
-
     </div>
     <!--end::Menu-->
 @endsection
@@ -98,50 +90,56 @@
                             <div class="card-header border-0 py-5">
                                 <h3 class="card-title align-items-start flex-column">
                                     <span class="card-label fw-bolder fs-3 mb-1">Data Pemohon</span>
-                                    <span class="text-muted fw-bold fs-6 mt-3">Formulir ini adalah formulir
-                                        pengajuan permohonan untuk penebangan, pemangkasan, atau pemindahan
-                                        pohon di lingkungan Kota Kendari. Dinas Lingkungan Hidup siap
-                                        menerima dan memproses permohonan Anda.</span>
                                 </h3>
 
                             </div>
                             <!--end::Header-->
                             <!--begin::Body-->
                             <div class="card-body d-flex flex-column">
-                                <!--begin::form -->
-                                <form class="row g-3">
-                                    <div class="col-md-6 mb-4">
-                                        <input type="email" class="form-control" id="inputEmail4" placeholder="NIK">
-                                    </div>
-                                    <div class="col-md-6 mb-4">
-                                        <input type="password" class="form-control" id="inputPassword4"
-                                            placeholder="Nama Lengkap">
-                                    </div>
-                                    <div class="col-md-6 mb-4">
-                                        <input type="text" class="form-control" id="inputAddress"
-                                            placeholder="Nomor Telepon">
-                                    </div>
-                                    <div class="col-md-6 mb-4">
-                                        <input type="text" class="form-control" id="inputAddress"
-                                            placeholder="Email">
-                                    </div>
-                                    <div class="col-md-6 mb-4">
-                                        <input type="file" class="form-control" id="inputAddress"
-                                            placeholder="Upload KTP">
-                                    </div>
-                                    <div class="col-md-6 mb-4">
-                                        <input type="text" class="form-control" id="inputAddress"
-                                            placeholder="Pekerjaan">
-                                    </div>
-                                    <div class="col-md-6 mb-4">
-                                        <input type="text" class="form-control" id="inputAddress2"
-                                            placeholder="Alamat">
-                                    </div>
-                                    <div class="col-12 text-end">
-                                        <button type="submit" class="btn btn-primary btn-rounded">Simpan</button>
-                                    </div>
-                                </form>
-                                <!--end::form-->
+                                <!--begin::table -->
+                                <table class="table table-striped " style="border: 1;">
+                                    <thead>
+                                      <tr>
+                                        <th scope="col">No.</th>
+                                        <th scope="col">Jenis Pelayanan</th>
+                                        <th scope="col">Alasan</th>
+                                        <th scope="col">Pemohon</th>
+                                        <th scope="col">Tanggal Pemohon</th>
+                                        <th scope="col">No.Permohonan</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Aksi</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <td>1</td>
+                                        <td>Penebangan Pohon</td>
+                                        <td>Menghalangi Jalan</td>
+                                        <td>Pribadi</td>
+                                        <td>12-12-2024</td>
+                                        <td>001/2024</td>
+                                        <td>Permohonan dibuat</td>
+                                        <td>
+                                            <a class="btn btn-sm btn-primary"><i class="fas fa-eye"></i></a>
+                                            <a class="btn btn-sm btn-success"><i class="fas fa-check-circle"></i></a>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td>2</td>
+                                        <td>Pengambilan Sampah</td>
+                                        <td>Sampah Tertumpuk</td>
+                                        <td>Perumahan</td>
+                                        <td>12-12-2024</td>
+                                        <td>002/2024</td>
+                                        <td>Permohonan dibuat</td>
+                                        <td>
+                                            <a class="btn btn-sm btn-primary"><i class="fas fa-eye"></i></a>
+                                            <a class="btn btn-sm btn-success"><i class="fas fa-check-circle"></i></a>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                <!--end::table-->
                             </div>
                             <!--end::Body-->
                         </div>

@@ -2540,7 +2540,7 @@ progress {
 .form-text {
     margin-top: .5rem;
     font-size: .925rem;
-    color: #a1a5b7
+    color: #fff
 }
 
 .form-control {
@@ -45318,7 +45318,7 @@ code:not([class*=language-]) {
 .form-control.form-control-solid:focus {
     background-color: #eef3f7;
     border-color: #eef3f7;
-    color: #5e6278;
+    color: #fff;
     transition: color .2s ease, background-color .2s ease
 }
 
@@ -51617,7 +51617,7 @@ code:not([class*=language-]) {
 
 .svg-icon.svg-icon-primary svg [fill]:not(.permanent):not(g) {
     transition: fill .3s ease;
-    fill: #fff
+    fill: #a1a5b7
 }
 
 .svg-icon.svg-icon-primary svg:hover [fill]:not(.permanent):not(g) {

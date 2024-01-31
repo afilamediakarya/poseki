@@ -125,7 +125,7 @@
                                 <!--end::Page title-->
                             </div>
                             <!--end::Navbar-->
-                            @include('includes.navbar')
+                            @include('includes.admin.navbar')
 
                         </div>
                         <!--end::Wrapper-->

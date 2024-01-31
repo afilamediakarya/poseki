@@ -4,8 +4,7 @@
 
 <head>
     <base href="../../../">
-    <title>Metronic - the worlds #1 selling Bootstrap Admin Theme Ecosystem for HTML, Vue, React, Angular &amp; Laravel
-        by Keenthemes</title>
+    <title>POSEKI - REGISTER</title>
     <meta name="description"
         content="The most advanced Bootstrap Admin Theme on Themeforest trusted by 94,000 beginners and professionals. Multi-demo, Dark Mode, RTL support and complete React, Angular, Vue &amp; Laravel versions. Grab your copy now and get life-time updates for free." />
     <meta name="keywords"
@@ -27,11 +26,6 @@
     <link href="{{ url('assets/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ url('assets/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
     <!--end::Global Stylesheets Bundle-->
-    <style>
-        .input::placeholder {
-            color: #ffffff;
-        }
-    </style>
 </head>
 <!--end::Head-->
 <!--begin::Body-->
@@ -49,8 +43,9 @@
                     <!--begin::Wrapper-->
                     <div class="w-lg-500px p-10 p-lg-15 mx-auto ">
                         <!--begin::Form-->
-                        <form class="form w-100" novalidate="novalidate" id="kt_sign_in_form" action="#">
+                        <form class="form w-100" method="POST" action="{{ route('register.post') }}">
                             <!--begin::Heading-->
+                            @csrf
                             <div class="text-center mb-10">
                                 <table>
                                     <tr>
@@ -65,15 +60,6 @@
                                         </td>
                                     </tr>
                                 </table>
-                                {{--  <!--begin::Title-->
-                                <h1 class="text-white mb-3">Welcome to</h1>
-                                <!--end::Title-->
-                                <!--begin::Link-->
-                                <div>
-                                    <img alt="Logo" src="assets/media/logos/logoPoseki.png" class="h-25px logo" />
-                                </div>  --}}
-                                {{--  <div class="text-gray-400 fw-bold fs-4">New Here?
-									<a href="../../demo2/dist/authentication/flows/aside/sign-up.html" class="link-primary fw-bolder">Create an Account</a></div>  --}}
                                 <!--end::Link-->
                             </div>
                             <!--begin::Heading-->
@@ -95,9 +81,8 @@
                                 <label class="form-label fs-6 fw-bolder text-white ms-1">Email</label>
                                 <!--end::Label-->
                                 <!--begin::Input-->
-                                <input class="form-control form-control-lg form-control-solid border rounded-pill input"
-                                    type="text" autocomplete="off"
-                                    style="background-color: #2f5fd96c;" />
+                                <input class="form-control form-control-lg form-control-solid border rounded-pill input" name="email"
+                                    type="email" autocomplete="off" style="background-color: #2f5fd96c;" />
                                 <!--end::Input-->
                             </div>
                             <!--end::Input group-->
@@ -108,18 +93,19 @@
                                 <!--end::Label-->
                                 <!--begin::Input-->
                                 <input class="form-control form-control-lg form-control-solid border rounded-pill"
-                                    type="password" name="pass" autocomplete="off"
+                                    type="password" name="password" autocomplete="off"
                                     style="background-color: #2f5fd96c;" />
                                 <!--end::Input-->
                             </div>
                             <!--begin::Input group-->
                             <div class="fv-row ">
                                 <!--begin::Label-->
-                                <label class="form-label fs-6 fw-bolder text-white ms-1 mt-lg-5">Repaeat Password</label>
+                                <label class="form-label fs-6 fw-bolder text-white ms-1 mt-lg-5">Repaeat
+                                    Password</label>
                                 <!--end::Label-->
                                 <!--begin::Input-->
                                 <input class="form-control form-control-lg form-control-solid border rounded-pill mb-5"
-                                    type="password" name="repeatPass" autocomplete="off"
+                                    type="password" name="repeatPassword" autocomplete="off"
                                     style="background-color: #2f5fd96c;" />
                                 <!--end::Input-->
                             </div>
@@ -127,10 +113,8 @@
                             <!--begin::Actions-->
                             <div class="text-center">
                                 <!--begin::Submit button-->
-                                <button type="submit" id="kt_sign_in_submit" class="btn btn-lg btn-white w-100 my-5">
+                                <button type="submit" class="btn btn-lg btn-white w-100 mb-5">
                                     <span class="indicator-label text-dark fw-bold">Sign up</span>
-                                    <span class="indicator-progress">Please wait...
-                                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
                                 </button>
                                 <!--end::Submit button-->
                                 <!--begin::Separator-->
@@ -141,7 +125,7 @@
                                     <img alt="Logo" src="assets/media/svg/brand-logos/google-icon.svg"
                                         class="h-20px me-3" />Continue with Google</a>
                                 <!--end::Google link-->
-                                <p class="text-white">Already have an account? <a href="{{ url('/login') }}"
+                                <p class="text-white">Already have an account? <a href="{{ url('/') }}"
                                         style="color: #fff700">Sign in</a></p>
                             </div>
                             <!--end::Actions-->

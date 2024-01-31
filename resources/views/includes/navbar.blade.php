@@ -8,7 +8,7 @@
             <div class="cursor-pointer symbol symbol-30px symbol-md-40px" data-kt-menu-trigger="click"
                 data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
                 <img src="assets/media/avatars/150-26.jpg" alt="user" style="border-radius: 50%;" />
-                <span class="mr-2 d-none d-lg-inline text- small">Muhammad parif</span>
+                <span class="mr-2 d-none d-lg-inline text- small">{{ Auth::user()->namaLengkap }}</span>
             </div>
             <!--end::Menu wrapper-->
         </div>

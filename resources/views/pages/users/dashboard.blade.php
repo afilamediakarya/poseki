@@ -12,7 +12,7 @@
     <!--begin::Menu-->
     <div class="menu menu-column menu-title-gray-800 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500"
         id="#kt_aside_menu" data-kt-menu="true">
-        
+
         <div class="menu-item">
             <a class="menu-link active" href="{{ route('dashboard') }}">
                 <span class="menu-icon">
@@ -77,14 +77,6 @@
                         <span class="menu-title">Pengangkutan sampah</span>
                     </a>
                 </div>
-                <div class="menu-item">
-                    <a class="menu-link" href="{{ route('layananMasyarakat') }}">
-                        <span class="menu-bullet">
-                            <span class="bullet bullet-dot"></span>
-                        </span>
-                        <span class="menu-title">Layanan Masyarakat</span>
-                    </a>
-                </div>
             </div>
         </div>
 
@@ -108,7 +100,7 @@
                 <span class="menu-title" style="">Riwayat Permohonan</span>
             </a>
         </div>
-       
+
         <div class="menu-item">
             <a class="menu-link" href="{{ route('faq') }}">
                 <span class="menu-icon">
@@ -173,7 +165,7 @@
         </div>
 
         <div class="menu-item">
-            <a class="menu-link" href="{{ url('/') }}">
+            <a class="menu-link" href="{{ route('actionlogout') }}">
                 <span class="menu-icon">
                     <!--begin::Svg Icon | path: icons/duotune/art/art002.svg-->
                     <span class="svg-icon svg-icon-2">
@@ -227,32 +219,43 @@
                             <!--begin::Body-->
                             <div class="card-body d-flex flex-column">
                                 <!--begin::form -->
-                                <form class="row g-3">
-                                    <div class="col-md-6 mb-4">
-                                        <input type="email" class="form-control" id="inputEmail4" placeholder="NIK">
+                                <form class="row g-3" action="{{ route('posts.store') }}" method="POST"
+                                    enctype="multipart/form-data">
+                                    @csrf
+                                    <div class="form-group">
+                                        <input type="text"
+                                            class="form-control @error('nik') is-invalid @enderror col-md-6 mb-4"
+                                            name="nik">
+                                        <!-- error message untuk nik -->
+                                        @error('nik')
+                                            <div class="alert alert-danger mt-2">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                     </div>
                                     <div class="col-md-6 mb-4">
                                         <input type="password" class="form-control" id="inputPassword4"
-                                            placeholder="Nama Lengkap">
+                                            name="namaLengkap" placeholder="Nama Lengkap">
                                     </div>
                                     <div class="col-md-6 mb-4">
-                                        <input type="text" class="form-control" id="inputAddress"
+                                        <input type="text" class="form-control" id="inputAddress" name="no_telp"
                                             placeholder="Nomor Telepon">
                                     </div>
                                     <div class="col-md-6 mb-4">
-                                        <input type="text" class="form-control" id="inputAddress"
+                                        <input type="text" class="form-control" id="inputAddress" name="email"
                                             placeholder="Email">
                                     </div>
                                     <div class="col-md-6 mb-4">
-                                        <input type="file" class="form-control" id="inputAddress"
+                                        <label for="floatingInputValue">Upload KTP</label>
+                                        <input type="file" name="gambar" class="form-control" id="inputAddress"
                                             placeholder="Upload KTP">
                                     </div>
                                     <div class="col-md-6 mb-4">
-                                        <input type="text" class="form-control" id="inputAddress"
+                                        <input type="text" class="form-control" id="inputAddress" name="pekerjaan"
                                             placeholder="Pekerjaan">
                                     </div>
                                     <div class="col-md-6 mb-4">
-                                        <input type="text" class="form-control" id="inputAddress2"
+                                        <input type="text" class="form-control" id="inputAddress2" name="alamat"
                                             placeholder="Alamat">
                                     </div>
                                     <div class="col-12 text-end">

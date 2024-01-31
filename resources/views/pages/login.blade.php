@@ -4,8 +4,7 @@
 
 <head>
     <base href="../../../">
-    <title>Metronic - the worlds #1 selling Bootstrap Admin Theme Ecosystem for HTML, Vue, React, Angular &amp; Laravel
-        by Keenthemes</title>
+    <title>POSEKI - Log In</title>
     <meta name="description"
         content="The most advanced Bootstrap Admin Theme on Themeforest trusted by 94,000 beginners and professionals. Multi-demo, Dark Mode, RTL support and complete React, Angular, Vue &amp; Laravel versions. Grab your copy now and get life-time updates for free." />
     <meta name="keywords"
@@ -27,17 +26,12 @@
     <link href="{{ url('assets/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ url('assets/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
     <!--end::Global Stylesheets Bundle-->
-    <style>
-        .input::placeholder {
-            color: #ffffff;
-        }
-    </style>
+
 </head>
 <!--end::Head-->
 <!--begin::Body-->
 
 <body id="kt_body" class="bg-body">
-
     <!--begin::Main-->
     <div class="d-flex flex-column flex-root">
         <!--begin::Authentication - Sign-in -->
@@ -49,7 +43,8 @@
                     <!--begin::Wrapper-->
                     <div class="w-lg-500px p-10 p-lg-15 mx-auto ">
                         <!--begin::Form-->
-                        <form class="form w-100" novalidate="novalidate" id="kt_sign_in_form" action="#">
+                        <form class="form w-100" action="{{ route('login.post') }}" method="POST">
+                            @csrf
                             <!--begin::Heading-->
                             <div class="text-center mb-10">
                                 <table>
@@ -65,15 +60,6 @@
                                         </td>
                                     </tr>
                                 </table>
-                                {{--  <!--begin::Title-->
-                                <h1 class="text-white mb-3">Welcome to</h1>
-                                <!--end::Title-->
-                                <!--begin::Link-->
-                                <div>
-                                    <img alt="Logo" src="assets/media/logos/logoPoseki.png" class="h-25px logo" />
-                                </div>  --}}
-                                {{--  <div class="text-gray-400 fw-bold fs-4">New Here?
-									<a href="../../demo2/dist/authentication/flows/aside/sign-up.html" class="link-primary fw-bolder">Create an Account</a></div>  --}}
                                 <!--end::Link-->
                             </div>
                             <!--begin::Heading-->
@@ -84,8 +70,7 @@
                                 <!--end::Label-->
                                 <!--begin::Input-->
                                 <input class="form-control form-control-lg form-control-solid border rounded-pill input"
-                                    type="email"
-                                    style="background-color: #2f5fd96c;" />
+                                    name="email" type="email" style="background-color: #2f5fd96c;" />
                                 <!--end::Input-->
                             </div>
                             <!--end::Input group-->
@@ -96,11 +81,9 @@
                                 <!--end::Label-->
                                 <!--begin::Input-->
                                 <input class="form-control form-control-lg form-control-solid border rounded-pill"
-                                    type="password"
-                                    style="background-color: #2f5fd96c;" />
+                                    name="password" type="password" style="background-color: #2f5fd96c;" />
                                 <!--end::Input-->
                             </div>
-
                             <!--begin::Link-->
                             <a href="../../demo2/dist/authentication/flows/aside/password-reset.html"
                                 class="link-primary fs-6">
@@ -111,10 +94,8 @@
                             <!--begin::Actions-->
                             <div class="text-center">
                                 <!--begin::Submit button-->
-                                <button type="submit" id="kt_sign_in_submit" class="btn btn-lg btn-white w-100 mb-5">
+                                <button type="submit" class="btn btn-lg btn-white w-100 mb-5">
                                     <span class="indicator-label text-dark fw-bold">Sign in</span>
-                                    <span class="indicator-progress">Please wait...
-                                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
                                 </button>
                                 <!--end::Submit button-->
                                 <!--begin::Separator-->
@@ -125,7 +106,8 @@
                                     <img alt="Logo" src="assets/media/svg/brand-logos/google-icon.svg"
                                         class="h-20px me-3" />Continue with Google</a>
                                 <!--end::Google link-->
-                                <p class="text-white">Don’t have an account? <a href="{{ url('/register') }}" style="color: #fff700">Sign up</a></p>
+                                <p class="text-white">Don’t have an account? <a href="{{ route('register') }}"
+                                        style="color: #fff700">Sign up</a></p>
                             </div>
                             <!--end::Actions-->
                         </form>
@@ -140,10 +122,10 @@
             <div class="d-flex flex-column flex-lg-row-auto w-xl-600px positon-xl-relative"
                 style="background-color: #fff; overflow-y: hidden;">
                 <!--begin::Wrapper-->
-                <div class="d-flex flex-column position-xl-fixed top-0 bottom-0 w-xl-600px scroll-y">
+                <div class="d-flex flex-column position-xl-fixed top-0 bottom-0 w-xl-600px">
                     <!--begin::Content-->
-                    <div class="d-flex flex-row-fluid flex-column text-center p-10 pt-lg-20">
-                        <img src="{{ url('assets/media/imageLogin.png') }}" alt="" class="mx-3 my3">
+                    <div class="d-flex flex-row-fluid flex-column text-center">
+                        <img src="{{ url('assets/media/imageLogin.png') }}" alt="" class="img-fluid" style="width: 100%">
                     </div>
                     <!--end::Content-->
 
@@ -165,6 +147,18 @@
     <!--end::Global Javascript Bundle-->
     <!--begin::Page Custom Javascript(used by this page)-->
     <script src="{{ url('assets/js/custom/authentication/sign-in/general.js') }}"></script>
+
+    @if ($message = Session::get('success'))
+        <script>
+            swal("{{ $message }}");
+        </script>
+    @endif
+
+    @if ($message = Session::get('failed'))
+        <script>
+            swal("{{ $message }}");
+        </script>
+    @endif
     <!--end::Page Custom Javascript-->
     <!--end::Javascript-->
 </body>
